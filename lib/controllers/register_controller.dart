@@ -46,6 +46,7 @@ Future<Map<String, dynamic>> sendAccountCreationRequest(String email, String pas
     };
   } catch (error) {
     if (error is DioError) {
+      print(error.response);
       return {
         'status': false,
         'message': error.response.toString().contains("duplicate") ? 'duplicate' : 'unkown',
